@@ -1,0 +1,46 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Usuario {
+  id_usuario       Int     @id @default(autoincrement())
+  direccion_correo String  @unique
+  password         String
+  nombre           String
+  descripcion      String?
+  direcciones_favoritas Favorito[]  @relation("direccion_favorita")
+  direcciones_bloqueadas Bloqueado[] @relation("direccion_bloqueada")
+}
+
+model Correo {
+  id_correo Int @id @default(autoincrement())
+  id_remitente Int
+  id_destinatario Int
+}
+
+model Favorito{
+  id_favorito Int @id @default(autoincrement()) //id en la tabla favorito
+  id_usuario_favorito Int @unique //id del usuario que se añadira como favorito
+  id_usuario Int //id del usuario que añadira un favorito
+
+  usuario_favorito Usuario @relation("direccion_favorita", fields: [id_usuario_favorito], references: [id_usuario])
+}
+
+model Bloqueado{
+  id_bloqueado Int @id @default(autoincrement())
+  id_usuario_bloqueado Int
+  id_usuario Int
+  usuario_bloqueado Usuario @relation("direccion_bloqueada", fields: [id_usuario_bloqueado], references: [id_usuario])
+}
+
