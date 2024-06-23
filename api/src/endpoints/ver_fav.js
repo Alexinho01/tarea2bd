@@ -4,7 +4,7 @@ import { PrismaClient } from "@prisma/client"
 const prisma = new PrismaClient();
 
 export const ver_fav = new Elysia()
-    .get("api1-1/ver_fav", async ({ query }) => {
+    .get("/api1-1/ver_fav", async ({ query }) => {
 
         try {
 

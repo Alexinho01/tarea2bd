@@ -23,12 +23,6 @@ model Usuario {
   direcciones_bloqueadas Bloqueado[] @relation("direccion_bloqueada")
 }
 
-model Correo {
-  id_correo Int @id @default(autoincrement())
-  id_remitente Int
-  id_destinatario Int
-}
-
 model Favorito{
   id_favorito Int @id @default(autoincrement()) //id en la tabla favorito
   id_usuario_favorito Int @unique //id del usuario que se añadira como favorito
