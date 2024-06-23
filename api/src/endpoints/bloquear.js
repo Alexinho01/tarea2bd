@@ -24,6 +24,12 @@ export const bloquear = new Elysia()
                 "mensaje": "El usuario no existe"
             }
         }
+        if (bloqueado.direccion_correo == bloqueador.direccion_correo){
+            return {
+                "estado": 409,
+                "mensaje": "No te puede bloquear a ti mismo."
+            }
+        }
 
         if (bloqueador.password != body.clave ){
             return {
