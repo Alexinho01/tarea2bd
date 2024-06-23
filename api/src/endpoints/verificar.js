@@ -25,7 +25,7 @@ export const verificar = new Elysia()
 
             }else{
                 return{
-                    "estado": 400,
+                    "estado": 401,
                     "credenciales": false
                 }
             }

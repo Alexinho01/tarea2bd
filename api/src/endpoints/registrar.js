@@ -10,7 +10,7 @@ export const registrar = new Elysia()
             body.correo == undefined || body.nombre ==undefined || body.pass == undefined || body.descripcion == undefined
         ){
             return {
-                "estado": 400,
+                "estado": 500,
                 "mensaje": "Ha habido un error"
             }
         }
@@ -21,8 +21,8 @@ export const registrar = new Elysia()
         })
         if (usuario){
             return{
-                "estado": 400,
-                "mensaje": "El correo a crear ya existe, intente con otra"
+                "estado": 409,
+                "mensaje": "El correo a crear ya existe, intente con otro usuario"
             }
         }
         try{

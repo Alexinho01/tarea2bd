@@ -16,7 +16,7 @@ export const ver_fav = new Elysia()
 
             if (usuario == null){
                 return {
-                    "estado": 200,
+                    "estado": 404,
                     "mensaje": "No existe el usuario"
                 }
             }
@@ -51,7 +51,7 @@ export const ver_fav = new Elysia()
 
             else{
                 return {
-                    "estado": 400,
+                    "estado": 401,
                     "mensaje": "Las credenciales no coinciden"
                 }
             }

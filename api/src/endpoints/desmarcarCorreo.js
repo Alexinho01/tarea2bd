@@ -19,14 +19,14 @@ export const desmarcarCorreo = new Elysia()
             })
             if (usuario == null){
                 return {
-                    "estado": 200,
-                    "mensaje": "No existe el usuario"
+                    "estado": 404,
+                    "mensaje": "El usuario no existe"
                 }
             }
             else if (usuario_bloquear == null){
                 return{
-                    "estado":200,
-                    "mensaje": "No existe el usuario favorito"
+                    "estado":404,
+                    "mensaje": "El usuario favorito no existe"
                 }
             }
 
@@ -46,15 +46,15 @@ export const desmarcarCorreo = new Elysia()
                             id_usuario_favorito: favoritoDesmarcar.id_usuario_favorito
                         }
                     })
-                    console.log(body.correo + "ha desmarcado el correo " + favoritoDesmarcar.id_favorito + "como favorito")
+                    console.log(body.correo + " ha desmarcado el correo " + favoritoDesmarcar.id_favorito + " como favorito.")
                     return{
                         "estado": 200,
-                        "mensaje": "Se ha eliminado el correo marcado como favorito"
+                        "mensaje": "Se ha eliminado el correo marcado como favorito."
                     }
                 }
                 else{
                     return{
-                        "estado": 400,
+                        "estado": 404,
                         "mensaje": "No existe el correo a desmarcar"
                     }
                 }
@@ -63,7 +63,7 @@ export const desmarcarCorreo = new Elysia()
         }catch(error){
             console.log(error)
             return{
-                "estado": 400,
+                "estado": 500,
                 "mensaje": "No se ha podido eliminar el Favorito"
             }
         }})

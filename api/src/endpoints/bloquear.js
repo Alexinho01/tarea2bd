@@ -28,7 +28,7 @@ export const bloquear = new Elysia()
         if (bloqueador.password != body.clave ){
             return {
                 "estado": 401,
-                "mensaje": "clave no coincide"
+                "mensaje": "La clave no coincide"
             }
         }
 
@@ -42,14 +42,14 @@ export const bloquear = new Elysia()
             })
             return{
                 "estado": 200,
-                "mensaje": "Usuario  bloqueado exitosamente"
+                "mensaje": "Usuario bloqueado exitosamente"
             }
         }
 
     } catch (error) {
         console.error("Error al bloquear usuario:", error);
         return {
-            "estado": 400,
+            "estado": 500,
             "mensaje": "Ocurrió un error al intentar bloquear al usuario"
         };
     }

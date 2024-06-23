@@ -35,7 +35,7 @@ export const marcarCorreo = new Elysia()
                     } 
                 })
 
-                console.log(usuario_marcador.direccion_correo + " ha agregado a " + usuario_marcado.direccion_correo + " como favorito.")
+                console.log(usuario_marcador.direccion_correo + " ha marcado a " + usuario_marcado.direccion_correo + " como favorito.")
 
                 return {
                     "estado": 200,
@@ -53,8 +53,8 @@ export const marcarCorreo = new Elysia()
         } catch (error) {
             console.log(error)
             return {
-                "estado": 400,
-                "mensaje": "No se ha podido marcar al contacto."
+                "estado": 500,
+                "mensaje": "No se ha podido marcar como favorito al contacto."
             }
         }
     })
