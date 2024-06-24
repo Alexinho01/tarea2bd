@@ -27,7 +27,7 @@ export const bloquear = new Elysia()
         if (bloqueado.direccion_correo == bloqueador.direccion_correo){
             return {
                 "estado": 409,
-                "mensaje": "No te puede bloquear a ti mismo."
+                "mensaje": "No te puedes bloquear a ti mismo."
             }
         }
 

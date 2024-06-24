@@ -31,7 +31,7 @@ model Favorito{
   usuario_favorito Usuario @relation("direccion_favorita", fields: [id_usuario_favorito], references: [id_usuario])
 }
 
-model Bloqueado{s
+model Bloqueado{
   id_bloqueado Int @id @default(autoincrement())
   id_usuario_bloqueado Int
   id_usuario Int
